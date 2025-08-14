@@ -116,7 +116,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(frontendPath));
 
   // This must be AFTER API routes
-  app.get("/*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 };
