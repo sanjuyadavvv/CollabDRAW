@@ -102,17 +102,31 @@ app.use("/api/auth", authRoutes);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+  const frontendPath = path.resolve(__dirname, "../frontend/dist");
+
+    const indexPath = path.join(frontendPath, "index.html");
+      console.log("frontendPath:", frontendPath);
+console.log("index.html exists?", fs.existsSync(indexPath));
+
+
+
+
+/*
 if (process.env.NODE_ENV === "production") {
-  const frontendPath = path.join(__dirname, "../frontend/dist");
+  const frontendPath = path.resolve(__dirname, "../frontend/dist");
   app.use(express.static(frontendPath));
 
 
-  console.log("Frontend path:", path.join(__dirname, "../frontend/dist/index.html"));
+  // console.log("Frontend path:", path.join(__dirname, "../frontend/dist/index.html"));
+
+ 
 
   app.get("*", (req, res) => {
 
 
      const indexPath = path.join(frontendPath, "index.html");
+      console.log("frontendPath:", frontendPath);
+console.log("index.html exists?", fs.existsSync(indexPath));
   if (fs.existsSync(indexPath)) {
     console.log("✅ Path exists, sending index.html");
    return  res.sendFile(indexPath);
@@ -126,6 +140,8 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
+
+*/
 
 
 

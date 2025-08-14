@@ -1,0 +1,13 @@
+{
+  "name": "collabboard",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+     "install-all": "cd frontend && npm install && npm run build && cd ../backend && npm install",
+    "start": "cd backend && npm start"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
