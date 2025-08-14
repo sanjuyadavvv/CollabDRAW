@@ -10,7 +10,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/authRoutes.js";
 import connect from "./db.js";
 import Drawing from "./models/Drawing.js";
-
+import fs from "fs"
 dotenv.config();
 connect();
 
