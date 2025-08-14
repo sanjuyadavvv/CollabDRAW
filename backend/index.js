@@ -106,8 +106,23 @@ if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../frontend/dist");
   app.use(express.static(frontendPath));
 
+
+  console.log("Frontend path:", path.join(__dirname, "../frontend/dist/index.html"));
+
   app.get("*", (req, res) => {
-    res.sendFile(path.join(frontendPath, "index.html"));
+
+
+     const indexPath = path.join(frontendPath, "index.html");
+  if (fs.existsSync(indexPath)) {
+    console.log("✅ Path exists, sending index.html");
+   return  res.sendFile(indexPath);
+  } else {
+    return res.status(404).send("Frontend not built yet");
+  }
+// console.log('path exist ')
+
+
+//     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
 
