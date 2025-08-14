@@ -16,7 +16,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Home/>}/>
       <Route path='/createroom' element={ <CreateRoom/>}/>
-    <Route path="/room/:roomId" className="w-screen h-screen" element={<Whiteboard/>}/>
+    <Route path="/room/:roomId"  element={<Whiteboard/>}/>
     <Route path="/login" element={<Login/>}/>
     </Routes>
       </BrowserRouter>
