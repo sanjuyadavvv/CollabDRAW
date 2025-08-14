@@ -11,5 +11,12 @@ router.post("/login", login);
 router.post('/google',googleAuth);
 
 router.post('/googlelogin',googleDirect)
+
+
+
+
+
+
+
 export default router;
 

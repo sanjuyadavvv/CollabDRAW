@@ -92,7 +92,7 @@ export const googleAuth=async(req,res)=>{
   );
   const code=req.body.code;
   if(!code){
-   return res.status(400).json({message:"authrrization code is required"});
+   return res.status(400).json({message:"authrization code is required"});
   }
 
   try {
