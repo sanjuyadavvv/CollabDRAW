@@ -1,8 +1,7 @@
 import User from "../models/UserModel.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
+// import bcrypt from "bcrypt";
+// import jwt from "jsonwebtoken";
 import generateToken from "../Utils/generateToken.js";
-
 import { OAuth2Client } from 'google-auth-library';
 import axios from 'axios'
 
@@ -100,7 +99,6 @@ export const googleAuth=async(req,res)=>{
     const {tokens}=await client.getToken(code);
     client.setCredentials(tokens);
     const userRes=await axios.get( `https://www.googleapis.com/oauth2/v1/userinfo?alt=json&access_token=${tokens.access_token}`)
-
     console.log(userRes)
     const {email,name}=userRes.data;
     let user=await User.findOne({email});

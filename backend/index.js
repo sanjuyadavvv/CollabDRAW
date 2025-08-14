@@ -99,22 +99,17 @@ io.on("connection", (socket) => {
 app.use("/api/auth", authRoutes);
 
 
-
-
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.resolve();
-
+const __dirname = path.dirname(__filename);
 
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.join(__dirname, "../frontend/dist");
   app.use(express.static(frontendPath));
 
-  // Catch-all route for React frontend (must come AFTER API routes)
-  app.get("/*", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
-
 
 
 
