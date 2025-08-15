@@ -104,14 +104,11 @@ const __dirname = path.dirname(__filename);
 
   const frontendPath = path.resolve(__dirname, "../frontend/dist");
 
-    const indexPath = path.join(frontendPath, "index.html");
-      console.log("frontendPath:", frontendPath);
-console.log("index.html exists?", fs.existsSync(indexPath));
 
 
 
 
-/*
+
 if (process.env.NODE_ENV === "production") {
   const frontendPath = path.resolve(__dirname, "../frontend/dist");
   app.use(express.static(frontendPath));
@@ -141,7 +138,7 @@ console.log("index.html exists?", fs.existsSync(indexPath));
 }
 
 
-*/
+
 
 
 
