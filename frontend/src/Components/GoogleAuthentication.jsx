@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { setUserDetails } from "./features/userSlice";
 
 
-const PORT= import.meta.env.VITE_CLIENT_ID;
+const API_BASE = import.meta.env.VITE_API_BASE_URL;
 
 export const GoogleAuthentication = () => {
 	const navigate = useNavigate();
@@ -16,7 +16,7 @@ export const GoogleAuthentication = () => {
 			const code = authResult.code;
 			console.log("Google auth code:", code);
 
-			const result = await axios.post(`http://localhost:${PORT}/api/auth/google",  {code}`);
+			const result = await axios.post(`${API_BASE}/api/auth/google`, { code });
             console.log(result)
 			const { email, fullName} = result.data.user;
 			const token = result.data.token;
