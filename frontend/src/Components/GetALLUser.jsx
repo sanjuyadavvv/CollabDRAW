@@ -6,14 +6,14 @@ const socket = io("https://collabboard-cseg.onrender.com");
 
 const GetALLUser = ({showUsers,setShowUsers}) => {
   const currentUser = useSelector((state) => state.user.userDetails);
-console.log('current user is ',currentUser)
+// console.log('current user is ',currentUser)
 
   const roomId=useSelector((state)=>state.user.roomId)
   const [onlineUsers, setOnlineUsers] = useState({});
 
 useEffect(() => {
  socket.on("update-online-users", (users) => {
-      console.log("Online users from server:", users);
+      // console.log("Online users from server:", users);
       setOnlineUsers(users);
     });
 

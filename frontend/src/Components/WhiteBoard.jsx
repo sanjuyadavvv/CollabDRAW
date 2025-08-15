@@ -13,7 +13,7 @@ const Whiteboard = () => {
 
   const { roomId } = useParams();
 
-  const currentUser = useSelector((state) => state.user.userDetails);
+  // const currentUser = useSelector((state) => state.user.userDetails);
     const dispatch=useDispatch();
 
   //  const {currentRoom}=useSelector((state)=>state.user.roomId)

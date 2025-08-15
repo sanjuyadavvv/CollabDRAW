@@ -89,7 +89,7 @@ io.on("connection", (socket) => {
     );
 
     onlineUsers[roomId].push({ ...user, socketId: socket.id });
-    console.log("Online users:", onlineUsers[roomId]);
+    // console.log("Online users:", onlineUsers[roomId]);
 
     socket.join(roomId);
     io.to(roomId).emit("update-online-users", onlineUsers[roomId]);
@@ -115,7 +115,7 @@ app.use("/api/auth", authRoutes);
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-  const frontendPath = path.resolve(__dirname, "../frontend/dist");
+  // const frontendPath = path.resolve(__dirname, "../frontend/dist");
 
 
 
@@ -132,10 +132,10 @@ if (process.env.NODE_ENV === "production") {
 
 
      const indexPath = path.join(frontendPath, "index.html");
-      console.log("frontendPath:", frontendPath);
-console.log("index.html exists?", fs.existsSync(indexPath));
+      // console.log("frontendPath:", frontendPath);
+// console.log("index.html exists?", fs.existsSync(indexPath));
   if (fs.existsSync(indexPath)) {
-    console.log("✅ Path exists, sending index.html");
+    // console.log("✅ Path exists, sending index.html");
    return  res.sendFile(indexPath);
   } else {
     return res.status(404).send("Frontend not built yet");

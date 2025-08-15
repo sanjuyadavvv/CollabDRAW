@@ -17,7 +17,7 @@ export const GoogleAuthentication = () => {
 			console.log("Google auth code:", code);
 
 			const result = await axios.post(`${API_BASE}/api/auth/google`, { code });
-            console.log(result)
+            // console.log(result)
 			const { email, fullName} = result.data.user;
 			const token = result.data.token;
 
