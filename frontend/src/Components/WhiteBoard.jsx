@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { setRoomId } from "./features/userSlice";
 
-const socket = io("http://localhost:3000");
+const socket= io("https://collabboard-cseg.onrender.com");
 
 const Whiteboard = () => {
 

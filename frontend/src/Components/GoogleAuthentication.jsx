@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "./features/userSlice";
 
+
+const PORT= import.meta.env.VITE_CLIENT_ID;
+
 export const GoogleAuthentication = () => {
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -13,7 +16,7 @@ export const GoogleAuthentication = () => {
 			const code = authResult.code;
 			console.log("Google auth code:", code);
 
-			const result = await axios.post("http://localhost:3000/api/auth/google",  {code});
+			const result = await axios.post(`http://localhost:${PORT}/api/auth/google",  {code}`);
             console.log(result)
 			const { email, fullName} = result.data.user;
 			const token = result.data.token;

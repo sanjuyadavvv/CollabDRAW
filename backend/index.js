@@ -25,8 +25,12 @@ app.use(express.json());
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "*",
-    methods: ["GET", "POST"],
+     origin: [
+    "http://localhost:5173", // for local dev
+    "https://collabboard-fe.onrender.com" // your deployed frontend
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true // if using cookies or sessions
   },
 });
 
@@ -114,9 +118,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(frontendPath));
 
 
-  // console.log("Frontend path:", path.join(__dirname, "../frontend/dist/index.html"));
-
- 
 
   app.get("*", (req, res) => {
 
@@ -130,10 +131,6 @@ console.log("index.html exists?", fs.existsSync(indexPath));
   } else {
     return res.status(404).send("Frontend not built yet");
   }
-// console.log('path exist ')
-
-
-//     res.sendFile(path.join(frontendPath, "index.html"));
   });
 }
 
