@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { useSelector } from "react-redux";
 // Connect socket outside component
-const socket = io("http://localhost:3000");
+const socket = io("https://collabboard-cseg.onrender.com");
 
 const GetALLUser = ({showUsers,setShowUsers}) => {
   const currentUser = useSelector((state) => state.user.userDetails);
